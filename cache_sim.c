@@ -62,6 +62,7 @@ void cpu_loop(int num_threads) {
     // Initialize cache lines to invalid state
     for (int i = 0; i < cache_size * num_threads; i++) {
         (c + i)->state = 'I';
+        (c + i)->address = -1;
     }
 
     #pragma omp parallel
